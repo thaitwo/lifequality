@@ -1,8 +1,6 @@
 import React from 'react';
-import borderRadius from 'highcharts-border-radius';
 import Highcharts from 'highcharts';
 import ReactHtmlParser from 'react-html-parser';
-borderRadius(Highcharts);
 
 class UrbanAreaScores extends React.Component {
   constructor(props) {
@@ -45,6 +43,7 @@ class UrbanAreaScores extends React.Component {
             borderRadius: 8,
             data: scores,
             color: '#4CAF50',
+            pointWidth: 16,
             showInLegend: false
           }
         ],

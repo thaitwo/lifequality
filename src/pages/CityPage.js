@@ -56,7 +56,7 @@ class CityPage extends React.Component {
       })
       .then(res => Promise.all(res.map(r => r.json())))
       .then(res => {
-        console.log(res);
+        // console.log(res);
         const [ uaInfo, { categories, summary }, { salaries } ] = res;
         this.setState({
           uaInfo,

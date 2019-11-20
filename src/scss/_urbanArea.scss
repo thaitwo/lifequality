@@ -1,8 +1,9 @@
 .ua-container  {
+  // display: flex;
+  // justify-content: space-between;
+}
+
+.scores-chart-container {
   display: flex;
   justify-content: space-between;
-
-  div {
-    flex: 1;
-  }
 }

@@ -1,5 +1,8 @@
 import React from 'react';
 import Highcharts from 'highcharts';
+import more from 'highcharts/highcharts-more';
+import { options } from '../constants/options/chartOptions';
+more(Highcharts)
 
 class UrbanAreaSalaries extends React.Component {
   constructor(props) {
@@ -7,57 +10,44 @@ class UrbanAreaSalaries extends React.Component {
 
     this.state = {
       jobTitles: null,
-      visibilityClass: ''
     };
 
     this.chart = null;
 
-    this.handleOpenDropdown = this.handleOpenDropdown.bind(this);
+    // this.handleOpenDropdown = this.handleOpenDropdown.bind(this);
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.salaries !== this.props.salaries) {
       const jobTitles = this.props.salaries.map(salary => salary.job.title);
-      const salaryPercentiles = this.props.salaries.map(salary => salary.salary_percentiles);
-      this.setState({ jobTitles });
-      // const options = {
+      const salaryPercentiles = this.props.salaries.map(salary => {
+        return [parseInt(salary.salary_percentiles.percentile_25), parseInt(salary.salary_percentiles.percentile_75)];
+      });
 
-      // };
+      options.xAxis.categories = jobTitles;
+      options.series[0].data = salaryPercentiles;
+      console.log(options.xAxis.categories)
       
-      // this.chart = new Highcharts.chart(options);
+      this.chart = new Highcharts.chart(options);
     }
   }
 
-  handleOpenDropdown() {
-    if (this.state.visibilityClass) {
-      this.setState({ visibilityClass: '' });
-    } else {
-      this.setState({ visibilityClass: 'is-visible' });
-    }
-  }
-
-  renderJobTitlesDropdown() {
-    const { jobTitles } = this.state;
-    if (jobTitles) {
-      return jobTitles.map((job, i) => <li key={i}>{job}</li>);
-    }
-  }
 
 
   render() {
-    const { jobTitles, visibilityClass } = this.state;
+    // const { jobTitles } = this.state;
 
     return (
       <div>
-        <div className="jt-dropdown">
-          <button onClick={this.handleOpenDropdown}>{jobTitles ? jobTitles[0] : ''}</button>
-          <ul className={visibilityClass}>
-            {this.renderJobTitlesDropdown()}
-          </ul>
-        </div>
+        <div id="uaSalariesChart" style={chartStyles}></div>
       </div>
     );
   }
 }
+
+const chartStyles = {
+  height: '1200px',
+  width: '100%'
+};
 
 export default UrbanAreaSalaries;
