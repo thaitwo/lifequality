@@ -1,6 +1,11 @@
 .topnav-container {
-  background: #000000;
+  background: $black;
   height: 72px;
+
+  .topnav-logo {
+    color: $white;
+    text-decoration: none;
+  }
 }
 
 .topnav-content {
@@ -14,5 +19,8 @@
 }
 
 .topnav-menu {
-  
+  li a {
+    color: $white;
+    text-decoration: none;
+  }
 }

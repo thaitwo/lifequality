@@ -51,9 +51,9 @@ class SearchBox extends React.Component {
   }
 
   renderSuggestions() {
-    const { suggestions } = this.state;
+    const { city, suggestions } = this.state;
 
-    if (suggestions) {
+    if (suggestions && city !== '') {
       return suggestions.slice(0,10).map((suggestion, index) => {
         const city = suggestion.matching_full_name;
         return <li key={index} onClick={() => this.handleSuggestionSelect(city)}>{city}</li>;
@@ -64,7 +64,7 @@ class SearchBox extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <input name="city" onChange={this.handleChange} value={this.state.city} />
+        <input className="search-input" name="city" onChange={this.handleChange} value={this.state.city} />
         <ul className="search-suggestions">
           {this.renderSuggestions()}
         </ul>

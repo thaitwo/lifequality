@@ -1,0 +1,20 @@
+.jt-dropdown {
+
+  ul {
+    border-radius: 4px;
+    box-shadow: 0 0 3px rgba($black, .3);
+    display: none;
+    padding: 8px 0;
+    position: absolute;
+
+    li {
+      cursor: pointer;
+      font-size: 13px;
+      padding: 4px 12px;
+
+      &:hover {
+        background: rgba($black,.1);
+      }
+    }
+  }
+}

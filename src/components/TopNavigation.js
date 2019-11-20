@@ -14,8 +14,8 @@ import SearchBox from './SearchBox';
 const TopNavigation = () => (
   <div className="topnav-container">
     <div className="topnav-content">
-      <Link to={ROUTES.HOME}>
-        <h2>Planet</h2>
+      <Link to={ROUTES.HOME} className="topnav-logo">
+        <h2>Life Quality</h2>
       </Link>
       <SearchBox />
       <ul className="topnav-menu">

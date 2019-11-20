@@ -1,3 +1,14 @@
+.search-input {
+  border: none;
+  border-radius: 3px;
+  box-sizing: border-box;
+  font-size: 16px;
+  height: 40px;
+  outline: none;
+  padding: 0 12px;
+  width: 300px;
+}
+
 .search-suggestions {
   background: white;
   box-shadow: 0 0 8px grey;
