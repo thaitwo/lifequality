@@ -1,0 +1,1 @@
+export const dataExists = (dataArr, id) => dataArr.some(item => item.id === id);

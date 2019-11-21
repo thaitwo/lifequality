@@ -38,12 +38,17 @@ class UrbanAreaScores extends React.Component {
           gridLineWidth: 0,
           visible: false
         },
+        plotOptions: {
+          series: {
+            pointPadding: 0,
+          }
+        },
         series: [
           {
-            borderRadius: 8,
+            borderRadius: 4,
             data: scores,
-            color: '#4CAF50',
-            pointWidth: 16,
+            color: '#66BB6A',
+            pointWidth: 20,
             showInLegend: false
           }
         ],
@@ -65,8 +70,13 @@ class UrbanAreaScores extends React.Component {
   render() {
     return (
       <div>
-        {this.renderSummary()}
-        <div id="uaScoresChart" style={chartStyles}></div>
+        <h2 className="text-subheader">Life Quality</h2>
+        <div className="ua-scores-container">
+          <div className="ua-scores-summary">
+            {this.renderSummary()}
+          </div>
+          <div id="uaScoresChart" style={chartStyles}></div>
+        </div>
       </div>
     );
   }

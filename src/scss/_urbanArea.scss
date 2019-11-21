@@ -1,9 +1,40 @@
 .ua-container  {
   // display: flex;
   // justify-content: space-between;
+
+  > div {
+    margin: 64px 0;
+  }
 }
 
 .scores-chart-container {
   display: flex;
   justify-content: space-between;
+}
+
+.ua-scores-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 40px;
+
+  div {
+    flex: 1;
+  }
+
+  .ua-scores-summary {
+    margin: 16px 0 0;
+  }
+
+  p {
+    line-height: 28px;
+    margin-bottom: 16px;
+  }
+
+  b {
+    font-weight: bold;
+  }
+}
+
+.cityinfo-container {
+  margin: 24px 0 64px;
 }

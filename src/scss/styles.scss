@@ -9,3 +9,10 @@
 
 // STATE
 @import './state/visibility.scss';
+
+// LAYOUT
+@import './layout/_layout.scss';
+
+// MODULE
+@import './module/charts';
+@import './module/cards/index.scss';

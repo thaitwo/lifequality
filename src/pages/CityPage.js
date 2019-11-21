@@ -1,7 +1,15 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import UrbanAreaScores from '../components/UrbanAreaScores';
-import UrbanAreaSalaries from '../components/UrbanAreaSalaries';
+import LifeQuality from '../components/LifeQuality';
+import Salaries from '../components/Salaries';
+import Climate from '../components/Climate';
+import CostOfLiving from '../components/CostOfLiving';
+import JobMarket from '../components/JobMarket';
+import Education from '../components/Education';
+import Housing from '../components/Housing';
+import Safety from '../components/Safety';
+import Lgbt from '../components/Lgbt';
+import People from '../components/People';
 
 class CityPage extends React.Component {
   constructor(props) {
@@ -9,11 +17,20 @@ class CityPage extends React.Component {
 
     this.state = {
       cityId: this.props.match.params.cityId,
-      uaInfo: {},
+      cityData: {},
       uaSummary: '',
       uaScores: [],
-      uaSalaries: null,
-      cityData: null
+      uaSalaries: [],
+      climate: {},
+      costOfLiving: {},
+      jobMarket: {},
+      education: {},
+      housing: {},
+      safety: {},
+      lgbt: {},
+      people: {},
+      uaPopulation: {},
+      language: {}
     }
   }
 
@@ -32,7 +49,7 @@ class CityPage extends React.Component {
       const cityId = nextProps.match.params.cityId;
       return {
         cityId,
-        cityData: null
+        cityData: {}
       }
     }
     return null;
@@ -44,55 +61,102 @@ class CityPage extends React.Component {
     fetch(`https://api.teleport.org/api/cities/geonameid:${cityId}`)
       .then(res => res.json())
       .then(res => {
-        const urbanAreaApiUrl = res['_links']['city:urban_area']['href'];
+        const urbanAreaUrl = res['_links']['city:urban_area']['href'];
         this.setState({ cityData: res });
 
         return Promise.all([
-          fetch(urbanAreaApiUrl),
-          // fetch(`${urbanAreaApiUrl}details`),
-          fetch(`${urbanAreaApiUrl}scores`),
-          fetch(`${urbanAreaApiUrl}salaries`)
+          fetch(`${urbanAreaUrl}scores`),
+          fetch(`${urbanAreaUrl}salaries`),
+          fetch(`${urbanAreaUrl}details`)
         ])
       })
       .then(res => Promise.all(res.map(r => r.json())))
-      .then(res => {
-        // console.log(res);
-        const [ uaInfo, { categories, summary }, { salaries } ] = res;
+      .then(([scores, salaries, details]) => {
+        const detailData = details.categories;
+        // console.log(detailData);
+
+        const climate = detailData.find(category => category.id === 'CLIMATE');
+        const costOfLiving = detailData.find(category => category.id === 'COST-OF-LIVING');
+        const jobMarket = detailData.find(category => category.id === 'JOB-MARKET');
+        const education = detailData.find(category => category.id === 'EDUCATION');
+        const housing = detailData.find(category => category.id === 'HOUSING');
+        const safety = detailData.find(category => category.id === 'SAFETY');
+        const lgbt = detailData.find(category => category.id === 'MINORITIES');
+        const people = detailData.find(category => category.id === 'INTERNAL');
+        const uaPopulation = detailData.find(category => category.id === 'CITY-SIZE');
+        const language = detailData.find(category => category.id === 'LANGUAGE');
+        // console.log(uaPopulation);
+
         this.setState({
-          uaInfo,
-          uaSummary: summary,
-          uaScores: categories,
-          uaSalaries: salaries
+          uaSummary: scores.summary,
+          uaScores: scores.categories,
+          uaSalaries: salaries.salaries,
+          uaDetails: details.categories,
+          climate,
+          costOfLiving,
+          jobMarket,
+          education,
+          housing,
+          safety,
+          lgbt,
+          people,
+          uaPopulation,
+          language
         });
       })
   }
 
-  renderData() {
-    const { cityData } = this.state;
-    // console.log(this.state);
-    if (cityData) {
-      const { full_name, population } = cityData;
-  
-      return (
-        <div>
-          <p>City: {full_name}</p>
-          <p>Population: {population}</p>
-        </div>
-      );
-    }
-  }
-
   render() {
-    // console.log('scores', this.state.uaScores)
     return (
       <div>
-        {this.renderData()}
+        <div className="city-info">
+          <CityInfo
+            name={this.state.cityData.full_name}
+            population={this.state.cityData.population}
+          />
+        </div>
         <div className="ua-container">
-          <UrbanAreaScores
-            summary={this.state.uaSummary}
-            scores={this.state.uaScores}
+          <div className="section">
+            <LifeQuality
+              summary={this.state.uaSummary}
+              scores={this.state.uaScores}
             />
-          <UrbanAreaSalaries
+          </div>
+          <div className="section">
+            <Climate
+              label={this.state.climate.label}
+              data={this.state.climate.data}
+            />
+          </div>
+          <CostOfLiving
+            label={this.state.costOfLiving.label}
+            data={this.state.costOfLiving.data}
+          />
+          <JobMarket
+            label={this.state.jobMarket.label}
+            data={this.state.jobMarket.data}
+          />
+          <Education
+            label={this.state.education.label}
+            data={this.state.education.data}
+          />
+          <Housing
+            label={this.state.housing.label}
+            data={this.state.housing.data}
+          />
+          <Safety
+            label={this.state.safety.label}
+            data={this.state.safety.data}
+          />
+          <Lgbt
+            data={this.state.lgbt.data}
+          />
+          <People
+            data={this.state.people.data}
+            population={this.state.uaPopulation.data}
+            language={this.state.language.data}
+          />
+          <Salaries
             salaries={this.state.uaSalaries}
           />
         </div>
@@ -100,5 +164,12 @@ class CityPage extends React.Component {
     );
   }
 }
+
+const CityInfo = ({ name, population }) => (
+  <div className="cityinfo-container">
+    <p className="text-header">{name}</p>
+    <p className="text-subheader">Population: {population}</p>
+  </div>
+);
 
 export default withRouter(CityPage);

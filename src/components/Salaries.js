@@ -21,12 +21,14 @@ class UrbanAreaSalaries extends React.Component {
     if (prevProps.salaries !== this.props.salaries) {
       const jobTitles = this.props.salaries.map(salary => salary.job.title);
       const salaryPercentiles = this.props.salaries.map(salary => {
-        return [parseInt(salary.salary_percentiles.percentile_25), parseInt(salary.salary_percentiles.percentile_75)];
+        const perc25 = Math.round(parseInt(salary.salary_percentiles.percentile_25) / 1000);
+        const perc75 = Math.round(parseInt(salary.salary_percentiles.percentile_75) / 1000);
+        return [perc25, perc75];
       });
 
       options.xAxis.categories = jobTitles;
       options.series[0].data = salaryPercentiles;
-      console.log(options.xAxis.categories)
+      // console.log(options.xAxis.categories)
       
       this.chart = new Highcharts.chart(options);
     }
@@ -39,6 +41,8 @@ class UrbanAreaSalaries extends React.Component {
 
     return (
       <div>
+        <h2 className="text-subheader">Salaries</h2>
+        <p className="text-body">Ranges are from 25th to 75th percentiles.</p>
         <div id="uaSalariesChart" style={chartStyles}></div>
       </div>
     );
