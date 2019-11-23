@@ -1,0 +1,61 @@
+.costLiving-wrapper {
+  -webkit-columns: 100px 2; /* Chrome, Safari, Opera */
+  -moz-columns: 100px 2; /* Firefox */
+  columns: 100px 2;
+  -webkit-column-gap: 80px; /* Chrome, Safari, Opera */
+  -moz-column-gap: 80px; /* Firefox */
+  column-gap: 80px;
+
+  li {
+    border-bottom: 1px dashed rgba($black, .1);
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 0;
+    text-align: center;
+
+    &:first-of-type {
+      border-top: 1px dashed rgba($black, .1);
+    }
+  }
+}
+
+.costLiving-iconData-wrapper {
+  display: flex;
+  align-items: center;  
+}
+
+.costLiving-icon-wrapper {
+  margin-right: 24px;
+  width: 40px;
+}
+
+.costLiving-cost {
+  align-items: center;
+  display: flex;
+  font-weight: bold;
+}
+
+.housing-cards-wrapper {
+  display: flex;
+  justify-content: space-between;
+
+  li {
+    border: 1px solid rgba($black,.06);
+    border-radius: 8px;
+    // border-right: 1px solid rgba($black,.1);
+    box-shadow: 0 0 3px rgba($black,.04);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-basis: 25%;
+    min-height: 200px;
+    padding: 24px;
+    text-align: center;
+
+    // &:first-of-type {
+    //   border-left: 1px solid rgba($black,.1);
+    // }
+  }
+}

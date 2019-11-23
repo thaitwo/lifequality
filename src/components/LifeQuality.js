@@ -70,7 +70,7 @@ class UrbanAreaScores extends React.Component {
   render() {
     return (
       <div>
-        <h2 className="text-subheader">Life Quality</h2>
+        <h2 className="text-header">Life Quality</h2>
         <div className="ua-scores-container">
           <div className="ua-scores-summary">
             {this.renderSummary()}

@@ -63,7 +63,7 @@ class CityPage extends React.Component {
       .then(res => {
         const urbanAreaUrl = res['_links']['city:urban_area']['href'];
         this.setState({ cityData: res });
-
+        console.log(res);
         return Promise.all([
           fetch(`${urbanAreaUrl}scores`),
           fetch(`${urbanAreaUrl}salaries`),
@@ -73,7 +73,7 @@ class CityPage extends React.Component {
       .then(res => Promise.all(res.map(r => r.json())))
       .then(([scores, salaries, details]) => {
         const detailData = details.categories;
-        // console.log(detailData);
+        console.log(detailData);
 
         const climate = detailData.find(category => category.id === 'CLIMATE');
         const costOfLiving = detailData.find(category => category.id === 'COST-OF-LIVING');
@@ -109,56 +109,46 @@ class CityPage extends React.Component {
   render() {
     return (
       <div>
-        <div className="city-info">
-          <CityInfo
-            name={this.state.cityData.full_name}
-            population={this.state.cityData.population}
-          />
+        <div className="section">
+          <CityInfo name={this.state.cityData.full_name} population={this.state.cityData.population} />
         </div>
-        <div className="ua-container">
+        <div className="section">
+          <LifeQuality summary={this.state.uaSummary} scores={this.state.uaScores} />
+        </div>
+        <div className="bg-dark">
           <div className="section">
-            <LifeQuality
-              summary={this.state.uaSummary}
-              scores={this.state.uaScores}
-            />
+            <Climate label={this.state.climate.label} data={this.state.climate.data} />
           </div>
+        </div>
+        <div className="section">
+          <CostOfLiving label={this.state.costOfLiving.label} data={this.state.costOfLiving.data} />
+        </div>
+        <div className="section">
+          <Housing label={this.state.housing.label} data={this.state.housing.data} />
+        </div>
+        <div className="bg-dark">
           <div className="section">
-            <Climate
-              label={this.state.climate.label}
-              data={this.state.climate.data}
-            />
+            <JobMarket label={this.state.jobMarket.label} data={this.state.jobMarket.data} />
           </div>
-          <CostOfLiving
-            label={this.state.costOfLiving.label}
-            data={this.state.costOfLiving.data}
-          />
-          <JobMarket
-            label={this.state.jobMarket.label}
-            data={this.state.jobMarket.data}
-          />
-          <Education
-            label={this.state.education.label}
-            data={this.state.education.data}
-          />
-          <Housing
-            label={this.state.housing.label}
-            data={this.state.housing.data}
-          />
-          <Safety
-            label={this.state.safety.label}
-            data={this.state.safety.data}
-          />
-          <Lgbt
-            data={this.state.lgbt.data}
-          />
+        </div>
+        <div className="section">
+          <Education label={this.state.education.label} data={this.state.education.data} />
+        </div>
+        <div className="section">
+          <Safety label={this.state.safety.label} data={this.state.safety.data} />
+        </div>
+        <div className="section">
+          <Lgbt data={this.state.lgbt.data} />
+        </div>
+        <div className="section">
           <People
             data={this.state.people.data}
             population={this.state.uaPopulation.data}
             language={this.state.language.data}
           />
-          <Salaries
-            salaries={this.state.uaSalaries}
-          />
+        </div>
+        <div className="section">
+          <Salaries salaries={this.state.uaSalaries} />
         </div>
       </div>
     );
@@ -166,7 +156,7 @@ class CityPage extends React.Component {
 }
 
 const CityInfo = ({ name, population }) => (
-  <div className="cityinfo-container">
+  <div>
     <p className="text-header">{name}</p>
     <p className="text-subheader">Population: {population}</p>
   </div>

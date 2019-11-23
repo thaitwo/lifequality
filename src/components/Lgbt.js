@@ -8,7 +8,7 @@ const Lgbt = ({ data }) => {
 
   return (
     <div>
-      <h2 className="text-subheader">LGBT Rights</h2>
+      <h2 className="text-header">LGBT Rights</h2>
       <div>
         <div>{adoptionRights.label}</div>
         <div>{adoptionRights.string_value}</div>

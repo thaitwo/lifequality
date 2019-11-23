@@ -8,7 +8,7 @@ const JobMarket = ({ label, data }) => {
 
   return (
     <div>
-      <h2 className="text-subheader">{label}</h2>
+      <h2 className="text-header">{label}</h2>
       <div>
         <div>{jobAvailScore.label}</div>
         <div>{jobAvailScore.float_value}</div>

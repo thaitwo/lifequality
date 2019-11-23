@@ -14,7 +14,7 @@ const People = ({ data, population, language }) => {
 
   return (
     <div>
-      <h2 className="text-subheader">People</h2>
+      <h2 className="text-header">People</h2>
       <div>
         <div>Population</div>
         <div>{uaPopulation.float_value}</div>

@@ -1,0 +1,85 @@
+
+$icon: '.icon';
+$iconSize: '.iconSize';
+
+
+// ICON SIZES
+
+#{$iconSize}-small {
+  font-size: 24px;
+}
+
+#{$iconSize}-medium {
+  font-size: 48px;
+}
+
+#{$iconSize}-large {
+  font-size: 64px;
+}
+
+
+// ICONS
+
+#{$icon}-sun {
+  color: $amber-400;
+}
+
+#{$icon}-rain {
+  color: $blue-500;
+}
+
+#{$icon}-tempHigh {
+  color: $deep-orange-500;  
+}
+
+#{$icon}-tempLow {
+  color: $blue-500;
+}
+
+#{$icon}-apple {
+  color: $red-800;
+}
+
+#{$icon}-bread {
+  color: $brown-500;
+}
+
+#{$icon}-beer {
+  color: $amber-400;
+}
+
+#{$icon}-mug {
+  color: $brown-300;
+}
+
+#{$icon}-ticket {
+  color: $blue-500;
+}
+
+#{$icon}-fitness {
+  color: $purple-500;
+}
+
+#{$icon}-bus {
+  color: $teal-500;
+}
+
+#{$icon}-burger {
+  color: $green-500;
+}
+
+#{$icon}-taxi {
+  color: $yellow-600;
+}
+
+#{$icon}-utensils {
+  color: $grey-500;
+}
+
+#{$icon}-home {
+  color: $indigo-500;
+}
+
+#{$icon}-smile {
+  color: $amber-400;
+}

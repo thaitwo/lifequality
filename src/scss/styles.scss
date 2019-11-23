@@ -1,18 +1,24 @@
-@import './_default.scss';
-@import './_text.scss';
-@import './_colors.scss';
-@import './_app.scss';
-@import './_topnav.scss';
-@import './_search.scss';
-@import './_urbanArea.scss';
-@import './_uaSalaries.scss';
-
-// STATE
-@import './state/visibility.scss';
+// BASE
+@import './base/_default.scss';
+@import './base/_text.scss';
+@import './base/_colors.scss';
+@import './base/icons.scss';
 
 // LAYOUT
 @import './layout/_layout.scss';
 
 // MODULE
+@import './_app.scss';
+@import './_topnav.scss';
+@import './_search.scss';
+@import './module/_climate.scss';
+@import './module/_costLiving.scss';
+@import './module/_education.scss';
+@import './_urbanArea.scss';
+@import './_uaSalaries.scss';
 @import './module/charts';
 @import './module/cards/index.scss';
+
+// STATE
+@import './state/_visibility.scss';
+@import './state/_text.scss';

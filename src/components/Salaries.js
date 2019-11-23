@@ -41,7 +41,7 @@ class UrbanAreaSalaries extends React.Component {
 
     return (
       <div>
-        <h2 className="text-subheader">Salaries</h2>
+        <h2 className="text-header">Salaries</h2>
         <p className="text-body">Ranges are from 25th to 75th percentiles.</p>
         <div id="uaSalariesChart" style={chartStyles}></div>
       </div>

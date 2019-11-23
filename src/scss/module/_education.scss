@@ -1,0 +1,46 @@
+.education-happinessPercent {
+  align-items: center;
+  border: 16px solid $amber-400;
+  border-radius: 100px;
+  display: flex;
+  flex-direction: column;
+  height: 120px;
+  justify-content: space-around;
+  width: 120px;
+
+  .text-header {
+    margin: 0;
+  }
+}
+
+.education-wrapper {
+  display: flex;
+  justify-content: space-between;
+
+  > div {
+    flex: 1;
+  }
+}
+
+.education-pisaScore-list {
+
+  li {
+    border-bottom: 1px solid rgba($black,.1);
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+
+    &:first-of-type {
+      border-bottom: 2px solid $black;
+    }
+  }
+}
+
+.education-bestUni-wrapper {
+  display: flex;
+  justify-content: flex-start;
+
+  > div:first-of-type {
+    margin-right: 8px;
+  }
+}

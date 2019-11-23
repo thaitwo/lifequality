@@ -1,0 +1,17 @@
+.climate-iconData-wrapper {
+  display: flex;
+
+  svg {
+    margin-right: 32px;
+    width: 32xz;
+  }
+}
+
+.climate-data-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.climate-weatherType {
+  margin-bottom: 48px;
+}
