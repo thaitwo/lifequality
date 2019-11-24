@@ -1,0 +1,33 @@
+.safety-cards-wrapper {
+  display: flex;
+  justify-content: space-between;
+
+  > div {
+    align-items: center;
+    border-radius: 12px;
+    display: flex;
+    flex: 1;
+    justify-content: space-between ;
+    padding: 24px;
+
+    &:first-of-type {
+      margin-right: 80px;
+    }
+
+    .text-header {
+      margin: 0;
+    }
+  }
+
+  .safety-gunDeaths {
+    border: 10px solid $deepOrange-500;
+    box-shadow: 10px 10px 0 rgba($deepOrange-500,.6);
+    color: $deepOrange-500;
+  }
+
+  .safety-gunOwnage {
+    border: 10px solid $red-800;
+    box-shadow: 10px 10px 0 rgba($red-800,.6);
+    color: $red-800;
+  }
+}

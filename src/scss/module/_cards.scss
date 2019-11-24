@@ -1,0 +1,38 @@
+.card {
+  border-radius: 10px;
+  padding: 24px;
+}
+
+.border-orange {
+  background: rgba($deepOrange-500,.1);
+  border-color: $deepOrange-500;
+}
+
+.border-red {
+  background: rgba($red-800,.1);
+  border-color: $red-800;
+}
+
+.border-amber {
+  background: rgba($amber-400,.1);
+  border-color: $amber-400;
+}
+
+.fill-black {
+  background: $black;
+  box-shadow: 0 6px 8px rgba($black,.2);
+  color: $white;
+}
+
+.fill-orange {
+  background: $deepOrange-500;
+  box-shadow: 0 4px 8px rgba($deepOrange-500,.4);
+  color: $white;
+}
+
+.fill-red {
+  background: $red-800;
+  // border-color: rgba($white,.4);
+  box-shadow: 0 0 0 10px rgba($red-800,.4);
+  color: $white;
+}

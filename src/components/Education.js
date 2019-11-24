@@ -17,38 +17,40 @@ const Education = ({ label, data }) => {
       <div className="education-wrapper">
         <div>
           <div>
-            <div className="text-subheader">{studentHappiness.label}</div>
+            <div className="text-subheader">Percent of Happy High School Students</div>
             <div className="education-happinessPercent">
               <div className="text-header">{parseFloat(studentHappiness.percent_value * 100).toFixed(0)}%</div>
             </div>
           </div>
           <div className="block">
-            <div className="text-subheader">Best University</div>
-            <div className="education-bestUni-wrapper">
-              <div>#{bestUniversityRanking.int_value}</div>
-              <div>{bestUniversity.string_value}</div>
+            <div className="text-subheader">Best University &amp; Ranking</div>
+            <div className="education-bestUni-wrapper card fill-black">
+              <div className="text-subheader no-margin-bottom">#{bestUniversityRanking.int_value}</div>
+              <div className="text-subheader no-margin-bottom">{bestUniversity.string_value}</div>
             </div>
           </div>
         </div>
         <div>
           <div>
-            <div className="text-subheader">Average PISA Scores</div>
+            <div className="text-subheader">Average PISA Scores (High School)</div>
+            <p>The Program for International Student Assessment (PISA) is an international assessment that measures 15-year-old students' reading, mathematics, and science literacy every three years. Scores are reported on a scale from 0 to 1,000.</p>
+            <p><a href="https://nces.ed.gov/surveys/pisa/" target="_blank">Learn more about PISA</a></p>
             <ul className="education-pisaScore-list">
               <li>
-                <h4 className="is-emphasized">Subject</h4>
-                <h4 className="is-emphasized">PISA Score</h4>
+                <h4 className="is-emphasized is-sublte">Subject</h4>
+                <h4 className="is-emphasized is-sublte">PISA Score</h4>
               </li>
               <li>
                 <h4 className="education-subject">Math</h4>
-                {Math.round(pisaMathScore.float_value).toFixed(0)}
+                <p className="is-emphasized">{Math.round(pisaMathScore.float_value).toFixed(0)}</p>
               </li>
               <li>
                 <h4 className="education-subject">Reading</h4>
-                {Math.round(pisaReadingScore.float_value).toFixed(0)}
+                <p className="is-emphasized">{Math.round(pisaReadingScore.float_value).toFixed(0)}</p>
               </li>
               <li>
                 <h4 className="education-subject">Science</h4>
-                {Math.round(pisaScienceScore.float_value).toFixed(0)}
+                <p className="is-emphasized">{Math.round(pisaScienceScore.float_value).toFixed(0)}</p>
               </li>
             </ul>
           </div>

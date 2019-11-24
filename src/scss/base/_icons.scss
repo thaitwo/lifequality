@@ -1,0 +1,128 @@
+
+$icon: '.icon';
+$iconStack: '.iconStack';
+$iconSize: '.iconSize';
+
+
+// ICON SIZES
+
+#{$iconSize}-small {
+  font-size: 24px;
+}
+
+#{$iconSize}-medium {
+  font-size: 48px;
+}
+
+#{$iconSize}-large {
+  font-size: 64px;
+}
+
+// ICON CONTAINER
+#{$icon}-stackCircle {
+  border-radius: 100px;
+}
+
+#{$icon}-stackSquare {
+  border-radius: 6px;
+}
+
+#{$icon}-stackCircle,
+#{$icon}-stackSquare {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.is-small {
+    height: 40px;
+    width: 40px;
+
+    svg {
+      font-size: 20px;
+    }
+  }
+
+  &.is-medium {
+    height: 48px;
+    width: 48px;
+  }
+}
+
+
+// ICONS
+
+#{$icon}-sun {
+  color: $amber-400;
+}
+
+#{$icon}-rain {
+  color: $blue-500;
+}
+
+#{$icon}-tempHigh {
+  color: $deepOrange-500;  
+}
+
+#{$icon}-tempLow {
+  color: $blue-500;
+}
+
+
+
+#{$iconStack}-red {
+  background: $red-800;
+  box-shadow: 0 3px 6px rgba($red-800,.4);
+}
+
+#{$iconStack}-brown {
+  background: $brown-500;
+  box-shadow: 0 3px 6px rgba($brown-500,.4);
+}
+
+#{$iconStack}-yellow {
+  background: $amber-400;
+  box-shadow: 0 3px 6px rgba($amber-400,.4);
+}
+
+#{$iconStack}-tan {
+  background: $brown-300;
+  box-shadow: 0 3px 6px rgba($brown-300,.4);
+}
+
+#{$iconStack}-blue {
+  background: $blue-500;
+  box-shadow: 0 3px 6px rgba($blue-500,.4);
+}
+
+#{$iconStack}-purple {
+  background: $purple-500;
+  box-shadow: 0 3px 6px rgba($purple-500,.4);
+}
+
+#{$iconStack}-teal {
+  background: $teal-500;
+  box-shadow: 0 3px 6px rgba($teal-500,.4);
+}
+
+#{$iconStack}-green {
+  background: $green-500;
+  box-shadow: 0 3px 6px rgba($green-500,.4);
+}
+
+#{$iconStack}-amber {
+  background: $yellow-800;
+  box-shadow: 0 3px 6px rgba($yellow-800,.4);
+}
+
+#{$iconStack}-orange {
+  background: $deepOrange-500;
+  box-shadow: 0 3px 6px rgba($deepOrange-500,.4);
+}
+
+#{$iconStack}-home {
+  color: $indigo-500;
+}
+
+#{$iconStack}-smile {
+  color: $amber-400;
+}

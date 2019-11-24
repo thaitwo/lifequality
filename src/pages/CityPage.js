@@ -63,7 +63,7 @@ class CityPage extends React.Component {
       .then(res => {
         const urbanAreaUrl = res['_links']['city:urban_area']['href'];
         this.setState({ cityData: res });
-        console.log(res);
+        // console.log(res);
         return Promise.all([
           fetch(`${urbanAreaUrl}scores`),
           fetch(`${urbanAreaUrl}salaries`),
@@ -115,7 +115,7 @@ class CityPage extends React.Component {
         <div className="section">
           <LifeQuality summary={this.state.uaSummary} scores={this.state.uaScores} />
         </div>
-        <div className="bg-dark">
+        <div className="bg-black">
           <div className="section">
             <Climate label={this.state.climate.label} data={this.state.climate.data} />
           </div>
@@ -126,7 +126,7 @@ class CityPage extends React.Component {
         <div className="section">
           <Housing label={this.state.housing.label} data={this.state.housing.data} />
         </div>
-        <div className="bg-dark">
+        <div className="bg-black">
           <div className="section">
             <JobMarket label={this.state.jobMarket.label} data={this.state.jobMarket.data} />
           </div>

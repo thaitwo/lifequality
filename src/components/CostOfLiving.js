@@ -15,16 +15,16 @@ import {
 
 
 const icons = [
-  <FontAwesomeIcon className="icon-apple iconSize-small" icon={faAppleAlt} />,
-  <FontAwesomeIcon className="icon-bread iconSize-small" icon={faBreadSlice} />,
-  <FontAwesomeIcon className="icon-mug iconSize-small" icon={faMugHot} />,
-  <FontAwesomeIcon className="icon-ticket iconSize-small" icon={faTicketAlt} />,
-  <FontAwesomeIcon className="icon-fitness iconSize-small" icon={faRunning} />,
-  <FontAwesomeIcon className="icon-beer iconSize-small" icon={faBeer} />,
-  <FontAwesomeIcon className="icon-bus iconSize-small" icon={faBusAlt} />,
-  <FontAwesomeIcon className="icon-burger iconSize-small" icon={faHamburger} />,
-  <FontAwesomeIcon className="icon-taxi iconSize-small" icon={faTaxi} />,
-  <FontAwesomeIcon className="icon-utensils iconSize-small" icon={faUtensils} />,
+  <div className="icon-stackCircle is-small iconStack-red"><FontAwesomeIcon className="iconSize-small" icon={faAppleAlt} /></div>,
+  <div className="icon-stackCircle is-small iconStack-brown"><FontAwesomeIcon className="iconSize-small" icon={faBreadSlice} /></div>,
+  <div className="icon-stackCircle is-small iconStack-tan"><FontAwesomeIcon className="iconSize-small" icon={faMugHot} /></div>,
+  <div className="icon-stackCircle is-small iconStack-blue"><FontAwesomeIcon className="iconSize-small" icon={faTicketAlt} /></div>,
+  <div className="icon-stackCircle is-small iconStack-purple"><FontAwesomeIcon className="iconSize-small" icon={faRunning} /></div>,
+  <div className="icon-stackCircle is-small iconStack-yellow"><FontAwesomeIcon className="iconSize-small" icon={faBeer} /></div>,
+  <div className="icon-stackCircle is-small iconStack-teal"><FontAwesomeIcon className="iconSize-small" icon={faBusAlt} /></div>,
+  <div className="icon-stackCircle is-small iconStack-green"><FontAwesomeIcon className="iconSize-small" icon={faHamburger} /></div>,
+  <div className="icon-stackCircle is-small iconStack-amber"><FontAwesomeIcon className="iconSize-small" icon={faTaxi} /></div>,
+  <div className="icon-stackCircle is-small iconStack-orange"><FontAwesomeIcon className="iconSize-small" icon={faUtensils} /></div>,
 ];
 
 
@@ -40,9 +40,7 @@ class CostOfLiving extends React.Component {
       return data.slice(1).map((item, index) => (
         <li key={index}>
           <div className="costLiving-iconData-wrapper">
-            <div className="costLiving-icon-wrapper">
-              {icons[index]}
-            </div>
+            {icons[index]}
             <div>{item.label}</div>
           </div>
           <div className="costLiving-cost">${item.currency_dollar_value.toFixed(2)}</div>

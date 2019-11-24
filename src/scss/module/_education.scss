@@ -1,11 +1,13 @@
 .education-happinessPercent {
   align-items: center;
-  border: 16px solid $amber-400;
+  border: 18px solid $amber-400;
   border-radius: 100px;
+  box-shadow: 0 0 0 12px rgba($amber-400,.4);
   display: flex;
   flex-direction: column;
   height: 120px;
   justify-content: space-around;
+  margin-top: 40px;
   width: 120px;
 
   .text-header {
@@ -19,11 +21,15 @@
 
   > div {
     flex: 1;
+
+    &:first-of-type {
+      margin-right: 80px;
+    }
   }
 }
 
 .education-pisaScore-list {
-
+  margin-top: 24px;
   li {
     border-bottom: 1px solid rgba($black,.1);
     display: flex;

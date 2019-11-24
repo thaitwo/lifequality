@@ -22,7 +22,15 @@
 
 .costLiving-iconData-wrapper {
   display: flex;
-  align-items: center;  
+  align-items: center;
+
+  .icon-stackCircle {
+    margin-right: 24px;
+  }
+
+  svg {
+    color: $white;
+  }
 }
 
 .costLiving-icon-wrapper {

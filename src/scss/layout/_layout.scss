@@ -1,15 +1,32 @@
 .section {
-  padding: 64px 0;
+  padding: 64px 0 80px;
   margin: 0 auto;
   max-width: 1032px;
   width: 100%;
 }
 
-.bg-dark {
+.bg-black {
   background: $black;
   color: $white;
 }
 
 .block {
-  margin-top: 40px;
+  margin-top: 64px;
+}
+
+.bg-red {
+  background: $red-900;
+  color: $white;
+}
+
+.bg-deeporange {
+  background: $deepOrange-800;
+
+  .text-header {
+    color: $white;
+  }
+}
+
+.bg-darkBlue {
+  background: $darkBlue;
 }
