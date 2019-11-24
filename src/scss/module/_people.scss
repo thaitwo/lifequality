@@ -1,0 +1,34 @@
+.people-list {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
+  > div {
+    border: 2px dashed rgba($deepOrange-500,.8);
+    box-shadow: 0 2px 4px rgba($deepOrange-500,.2);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-basis: 240px;
+    margin-bottom: 24px;
+    margin-right: 24px;
+    min-height: 160px;
+    padding: 24px;
+
+    &:nth-child(4n) {
+      margin-right: 0;
+    }
+
+    h4 {
+      font-size: 28px;
+      font-weight: bold;
+      margin-top: 16px;
+    }
+
+    p {
+      color: rgba($deepOrange-500,1);
+      line-height: 1;
+    }
+  }
+}

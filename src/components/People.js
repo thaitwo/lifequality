@@ -15,37 +15,42 @@ const People = ({ data, population, language }) => {
   return (
     <div>
       <h2 className="text-header">People</h2>
-      <div>
-        <div>Population</div>
-        <div>{uaPopulation.float_value}</div>
-      </div>
-      <div>
-        <div>Population Density</div>
-        <div>{populationDensity.float_value}</div>
-      </div>
-      <div>
-        <div>Elderly People (65+)</div>
-        <div>{elderlyPercent.percent_value}</div>
-      </div>
-      <div>
-        <div>Life Expectancy at Birth</div>
-        <div>{lifeExpectancy.float_value}</div>
-      </div>
-      <div>
-        <div>Median Age</div>
-        <div>{medianAge.float_value}</div>
-      </div>
-      <div>
-        <div>Unemployment Rate</div>
-        <div>{unemploymentRate.percent_value}</div>
-      </div>
-      <div>
-        <div>Spoken Language</div>
-        <div>{spokenLanguage.string_value}</div>
-      </div>
-      <div>
-        <div>English Proficiency</div>
-        <div>{englishProficiency.int_value}</div>
+      <div className="people-list">
+        <div>
+          <h4>{(uaPopulation.float_value * 1000000).toString()}</h4>
+          <p>Population</p>
+        </div>
+        <div>
+          <h4>{Math.round(populationDensity.float_value).toString()}</h4>
+          <div>
+            <p>Population Density</p>
+            <p className="text-caption">People Per Square Kilometer</p>
+          </div>
+        </div>
+        <div>
+          <h4>{Math.round(elderlyPercent.percent_value * 10000).toString()}%</h4>
+          <p>Elderly People (65+)</p>
+        </div>
+        <div>
+          <h4>{lifeExpectancy.float_value} yrs</h4>
+          <p>Life Expectancy at Birth</p>
+        </div>
+        <div>
+          <h4>{medianAge.float_value}</h4>
+          <p>Median Age</p>
+        </div>
+        {/* <div>
+          <h4>{(unemploymentRate.percent_value * 10000).toString()}%</h4>
+          <div>Unemployment Rate</div>
+        </div> */}
+        <div>
+          <h4>{spokenLanguage.string_value}</h4>
+          <p>Spoken Language</p>
+        </div>
+        <div>
+          <h4>{englishProficiency.int_value}</h4>
+          <p>English Proficiency</p>
+        </div>
       </div>
     </div>
   );
