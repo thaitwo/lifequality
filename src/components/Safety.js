@@ -13,11 +13,11 @@ const Safety = ({ label, data }) => {
             <div className="text-subheader no-margin-bottom">Gun-Related Deaths</div>
             <p>Per 100K People / Year</p>
           </div>
-          <div className="text-header">{gunDeathRate.int_value}</div>
+          <div className="text-header">{parseFloat(gunDeathRate.int_value).toFixed(1)}</div>
         </div>
         <div className="safety-gunOwnage">
           <div className="text-subheader no-margin-bottom">Guns Per 100 People</div>
-          <div className="text-header">{gunOwnership.int_value}</div>
+          <div className="text-header">{parseFloat(gunOwnership.int_value).toFixed(1)}</div>
         </div>
       </div>
     </div>

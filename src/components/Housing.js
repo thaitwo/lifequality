@@ -12,25 +12,31 @@ const Housing = ({ label, data }) => {
       <h2 className="text-subheader">Housing Costs</h2>
       <ul className="housing-cards-wrapper">
         <li>
-          <div>{largeAptRent.label}</div>
-          <div>
+          <div className="icon-stack-circle is-large fill-blue">
             <FontAwesomeIcon className="icon-home iconSize-large" icon={faHome} />
           </div>
-          <div>${largeAptRent.currency_dollar_value}</div>
+          <div>
+            <div className="housing-price">${largeAptRent.currency_dollar_value}</div>
+            <div className="housing-description">{largeAptRent.label}</div>
+          </div>
         </li>
         <li>
-          <div>{mediumAptRent.label}</div>
-          <div>
+          <div className="icon-stack-circle is-medium fill-blue">
             <FontAwesomeIcon className="icon-home iconSize-medium" icon={faHome} />
           </div>
-          <div>${mediumAptRent.currency_dollar_value}</div>
+          <div>
+            <div className="housing-price">${mediumAptRent.currency_dollar_value}</div>
+            <div className="housing-description">{mediumAptRent.label}</div>
+          </div>
         </li>
         <li>
-          <div>{smallAptRent.label}</div>
-          <div>
+          <div className="icon-stack-circle is-small fill-blue">
             <FontAwesomeIcon className="icon-home iconSize-small" icon={faHome} />
           </div>
-          <div>${smallAptRent.currency_dollar_value}</div>
+          <div>
+            <div className="housing-price">${smallAptRent.currency_dollar_value}</div>
+            <div className="housing-description">{smallAptRent.label}</div>
+          </div>
         </li>
       </ul>
     </div>

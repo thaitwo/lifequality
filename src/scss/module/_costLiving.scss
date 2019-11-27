@@ -5,6 +5,7 @@
   -webkit-column-gap: 80px; /* Chrome, Safari, Opera */
   -moz-column-gap: 80px; /* Firefox */
   column-gap: 80px;
+  margin-bottom: 80px;
 
   li {
     border-bottom: 1px dashed rgba($black, .1);
@@ -47,23 +48,28 @@
 .housing-cards-wrapper {
   display: flex;
   justify-content: space-between;
+  margin-top: 40px;
 
   li {
-    border: 1px solid rgba($black,.06);
-    border-radius: 8px;
-    // border-right: 1px solid rgba($black,.1);
-    box-shadow: 0 0 3px rgba($black,.04);
+    background: rgba($blue-500,.1);
+    border-radius: 16px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     flex-basis: 25%;
-    min-height: 200px;
+    min-height: 260px;
     padding: 24px;
-    text-align: center;
+  }
 
-    // &:first-of-type {
-    //   border-left: 1px solid rgba($black,.1);
-    // }
+  .housing-price {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 48px;
+  }
+  .housing-description {
+    color: $blue-500;
+    font-size: 17px;
+    font-weight: bold;
   }
 }

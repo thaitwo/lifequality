@@ -24,7 +24,7 @@ const People = ({ data, population, language }) => {
           <h4>{Math.round(populationDensity.float_value).toString()}</h4>
           <div>
             <p>Population Density</p>
-            <p className="text-caption">People Per Square Kilometer</p>
+            <span className="text-caption">People Per Square Kilometer</span>
           </div>
         </div>
         <div>

@@ -4,7 +4,6 @@
 
   > div {
     align-items: center;
-    border-radius: 12px;
     display: flex;
     flex: 1;
     justify-content: space-between ;
@@ -15,19 +14,16 @@
     }
 
     .text-header {
+      // color: $blue-500;
       margin: 0;
     }
   }
 
   .safety-gunDeaths {
-    border: 10px solid $deepOrange-500;
-    box-shadow: 10px 10px 0 rgba($deepOrange-500,.6);
-    color: $deepOrange-500;
+    border-left: 5px dashed rgba($white, .4);
   }
 
   .safety-gunOwnage {
-    border: 10px solid $red-800;
-    box-shadow: 10px 10px 0 rgba($red-800,.6);
-    color: $red-800;
+    border-left: 5px dashed rgba($white, .4);
   }
 }

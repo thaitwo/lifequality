@@ -4,8 +4,7 @@
   flex-wrap: wrap;
 
   > div {
-    border: 2px dashed rgba($deepOrange-500,.8);
-    box-shadow: 0 2px 4px rgba($deepOrange-500,.2);
+    border: 2px dashed rgba($white,.2);
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -27,7 +26,8 @@
     }
 
     p {
-      color: rgba($deepOrange-500,1);
+      color: rgba($black,.6);
+      font-weight: bold;
       line-height: 1;
     }
   }

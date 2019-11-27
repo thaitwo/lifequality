@@ -122,8 +122,6 @@ class CityPage extends React.Component {
         </div>
         <div className="section">
           <CostOfLiving label={this.state.costOfLiving.label} data={this.state.costOfLiving.data} />
-        </div>
-        <div className="section">
           <Housing label={this.state.housing.label} data={this.state.housing.data} />
         </div>
         <div className="bg-black">
@@ -134,18 +132,22 @@ class CityPage extends React.Component {
         <div className="section">
           <Education label={this.state.education.label} data={this.state.education.data} />
         </div>
-        <div className="section">
-          <Safety label={this.state.safety.label} data={this.state.safety.data} />
+        <div className="bg-blue">
+          <div className="section">
+            <Safety label={this.state.safety.label} data={this.state.safety.data} />
+          </div>
         </div>
         <div className="section">
           <Lgbt data={this.state.lgbt.data} />
         </div>
-        <div className="section">
-          <People
-            data={this.state.people.data}
-            population={this.state.uaPopulation.data}
-            language={this.state.language.data}
-          />
+        <div className="bg-orange">
+          <div className="section">
+            <People
+              data={this.state.people.data}
+              population={this.state.uaPopulation.data}
+              language={this.state.language.data}
+            />
+          </div>
         </div>
         <div className="section">
           <Salaries salaries={this.state.uaSalaries} />

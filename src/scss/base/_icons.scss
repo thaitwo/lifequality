@@ -11,16 +11,38 @@ $iconSize: '.iconSize';
 }
 
 #{$iconSize}-medium {
-  font-size: 48px;
+  font-size: 32px;
 }
 
 #{$iconSize}-large {
-  font-size: 64px;
+  font-size: 40px;
 }
 
 // ICON CONTAINER
 #{$icon}-stackCircle {
   border-radius: 100px;
+}
+
+#{$icon}-stack-circle {
+  align-items: center;
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+
+  &.is-large {
+    height: 72px;
+    width: 72px;
+  }
+
+  &.is-medium {
+    height: 56px;
+    width: 56px;
+  }
+  
+  &.is-small {
+    height: 40px;
+    width: 40px;
+  }
 }
 
 #{$icon}-stackSquare {
