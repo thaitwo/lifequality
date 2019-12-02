@@ -47,7 +47,7 @@ class SearchBox extends React.Component {
     const apiUrl = selectedCity['_links']['city:item']['href'];
     const cityId = apiUrl.split('geonameid:')[1].split('/')[0];
     this.setState({ ...INITIAL_STATE });
-    this.props.history.push(`${ROUTES.CITY}/${cityId}`);
+    this.props.history.push(process.env.PUBLIC_URL + `${ROUTES.CITY}/${cityId}`);
   }
 
   renderSuggestions() {

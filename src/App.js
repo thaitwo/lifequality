@@ -12,10 +12,10 @@ const App = () => (
   <Router>
     <TopNavigation />
     <div className="app-container">
-      <Route exact path={ROUTES.HOME} component={HomePage} />
-      <Route path={ROUTES.ABOUT} component={AboutPage} />
-      <Route path={`${ROUTES.CITY}/:cityId`} component={CityPage} />
+      <Route exact path={process.env.PUBLIC_URL + ROUTES.HOME} component={HomePage} />
+      <Route path={process.env.PUBLIC_URL + ROUTES.ABOUT} component={AboutPage} />
     </div>
+    <Route path={process.env.PUBLIC_URL + `${ROUTES.CITY}/:cityId`} component={CityPage} />
   </Router>
 );
 

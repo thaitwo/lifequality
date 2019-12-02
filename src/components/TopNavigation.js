@@ -14,13 +14,13 @@ import SearchBox from './SearchBox';
 const TopNavigation = () => (
   <div className="topnav-container">
     <div className="topnav-content">
-      <Link to={ROUTES.HOME} className="topnav-logo">
+      <Link to={process.env.PUBLIC_URL + ROUTES.HOME} className="topnav-logo">
         <h2>Life Quality</h2>
       </Link>
       <SearchBox />
       <ul className="topnav-menu">
         <li>
-          <Link to={ROUTES.ABOUT}>About</Link>
+          <Link to={process.env.PUBLIC_URL + ROUTES.ABOUT}>About</Link>
         </li>
       </ul>
     </div>
