@@ -4,4 +4,4 @@
 
 export const HOME =     '/';
 export const ABOUT =    '/about';
-export const CITY =     '/city';
+export const CITIES =   '/cities';

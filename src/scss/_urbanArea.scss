@@ -34,3 +34,32 @@
 .cityinfo-container {
   margin: 24px 0 64px;
 }
+
+.urban-areas-container {
+  -webkit-columns: 100px 4; /* Chrome, Safari, Opera */
+  -moz-columns: 100px 4; /* Firefox */
+  columns: 100px 4;
+  -webkit-column-gap: 16px; /* Chrome, Safari, Opera */
+  -moz-column-gap: 16px; /* Firefox */
+  column-gap: 16px;
+  margin: 80px 0;
+
+  li {
+    
+    a {
+      border-radius: 4px;
+      color: rgba($black, 0.6);
+      display: block;
+      line-height: 1.2;
+      padding: 8px 12px;
+      text-decoration: none;
+      transition: all 0.1s;
+
+      &:hover {
+        background: rgba($blue-500, 0.06);
+        color: $blue-500;
+        // font-weight: bold;
+      }
+    }
+  }
+}

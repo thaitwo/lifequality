@@ -31,6 +31,7 @@ class SearchBox extends React.Component {
     fetch(`https://api.teleport.org/api/cities/?search=${e.target.value}`)
       .then(res => res.json())
       .then(data => {
+        console.log(data);
         this.setState({
           suggestions: data['_embedded']['city:search-results']
         });
@@ -46,8 +47,18 @@ class SearchBox extends React.Component {
     const selectedCity = suggestions.find(city => cityValue === city.matching_full_name);
     const apiUrl = selectedCity['_links']['city:item']['href'];
     const cityId = apiUrl.split('geonameid:')[1].split('/')[0];
-    this.setState({ ...INITIAL_STATE });
-    this.props.history.push(process.env.PUBLIC_URL + `${ROUTES.CITY}/${cityId}`);
+    fetch(apiUrl)
+      .then(res => res.json())
+      .then(res => {
+
+        let urbanAreaLink = res['_links']['city:urban_area'] ? res['_links']['city:urban_area']['href'] : null;
+        console.log(urbanAreaLink);
+        let slugName = urbanAreaLink ? urbanAreaLink.split('slug:')[1].split('/')[0] : 'notfound';
+        console.log(res);
+        this.setState({ ...INITIAL_STATE });
+        this.props.history.push(process.env.PUBLIC_URL + `${ROUTES.CITIES}/${slugName}`);
+      })
+    // this.props.history.push(process.env.PUBLIC_URL + `${ROUTES.CITIES}/${cityId}`);
   }
 
   renderSuggestions() {

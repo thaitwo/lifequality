@@ -15,7 +15,7 @@ const App = () => (
       <Route exact path={process.env.PUBLIC_URL + ROUTES.HOME} component={HomePage} />
       <Route path={process.env.PUBLIC_URL + ROUTES.ABOUT} component={AboutPage} />
     </div>
-    <Route path={process.env.PUBLIC_URL + `${ROUTES.CITY}/:cityId`} component={CityPage} />
+    <Route path={process.env.PUBLIC_URL + `${ROUTES.CITIES}/:cityId`} component={CityPage} />
   </Router>
 );
 
