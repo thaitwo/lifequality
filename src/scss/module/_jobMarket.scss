@@ -1,0 +1,22 @@
+.job-market-stats {
+  display: flex;
+  justify-content: space-between;
+
+  h3,
+  h4 {
+    margin-bottom: 0;
+  }
+
+  > div {
+    align-items: center;
+    border-left: 5px dashed rgba($white, .2);
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    padding: 24px;
+
+    &:first-of-type {
+      margin-right: 80px;
+    }
+  }
+}

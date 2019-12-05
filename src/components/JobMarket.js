@@ -9,8 +9,8 @@ const JobMarket = ({ label, data }) => {
   if (jobAvail) {
     jobAvailContent = (
       <div>
-        <div className="text-subheader">{jobAvail.label}</div>
-        <div>{jobAvail.int_value}</div>
+        <h4 className="text-subheader">{jobAvail.label}</h4>
+        <h3 className="text-header">{jobAvail.int_value}</h3>
       </div>
     );
   }
@@ -18,8 +18,8 @@ const JobMarket = ({ label, data }) => {
   if (startupSalary) {
     startupSalaryContent = (
       <div>
-        <div className="text-subheader">{startupSalary.label}</div>
-        <div>{startupSalary.currency_dollar_value}</div>
+        <h4 className="text-subheader">{startupSalary.label}</h4>
+        <h3 className="text-header">${(startupSalary.currency_dollar_value).toLocaleString('en')}</h3>
       </div>
     );
   }
@@ -27,8 +27,10 @@ const JobMarket = ({ label, data }) => {
   return (
     <div>
       <h2 className="text-header">{label}</h2>
-      {jobAvailContent}
-      {startupSalaryContent}
+      <div className="job-market-stats">
+        {jobAvailContent}
+        {startupSalaryContent}
+      </div>
     </div>
   );
 }
