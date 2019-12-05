@@ -50,15 +50,12 @@ class SearchBox extends React.Component {
     fetch(apiUrl)
       .then(res => res.json())
       .then(res => {
-
         let urbanAreaLink = res['_links']['city:urban_area'] ? res['_links']['city:urban_area']['href'] : null;
-        console.log(urbanAreaLink);
         let slugName = urbanAreaLink ? urbanAreaLink.split('slug:')[1].split('/')[0] : 'notfound';
-        console.log(res);
+
         this.setState({ ...INITIAL_STATE });
         this.props.history.push(process.env.PUBLIC_URL + `${ROUTES.CITIES}/${slugName}`);
       })
-    // this.props.history.push(process.env.PUBLIC_URL + `${ROUTES.CITIES}/${cityId}`);
   }
 
   renderSuggestions() {
@@ -75,7 +72,13 @@ class SearchBox extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <input className="search-input" name="city" onChange={this.handleChange} value={this.state.city} />
+        <input
+          className="search-input"
+          name="city"
+          onChange={this.handleChange}
+          value={this.state.city}
+          placeholder="Search cities"
+        />
         <ul className="search-suggestions">
           {this.renderSuggestions()}
         </ul>

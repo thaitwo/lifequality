@@ -15,14 +15,9 @@ const TopNavigation = () => (
   <div className="topnav-container">
     <div className="topnav-content">
       <Link to={process.env.PUBLIC_URL + ROUTES.HOME} className="topnav-logo">
-        <h2>Life Quality</h2>
+        <h2>WorldLifeQuality</h2>
       </Link>
       <SearchBox />
-      <ul className="topnav-menu">
-        <li>
-          <Link to={process.env.PUBLIC_URL + ROUTES.ABOUT}>About</Link>
-        </li>
-      </ul>
     </div>
   </div>
 );
