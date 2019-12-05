@@ -10,6 +10,19 @@ const Education = ({ label, data }) => {
   const pisaScienceScore = data ? data.find(item => item.id === 'PISA-DETAIL-SCIENCE-MEAN-SCORES') : '';
   const bestUniversity = data ? data.find(item => item.id === 'UNIVERSITIES-BEST-RANKED-NAME') : '';
   const bestUniversityRanking = data ? data.find(item => item.id === 'UNIVERSITIES-BEST-RANKED-RANK') : '';
+  let bestUniversityContent = '';
+
+  if (bestUniversity && bestUniversityRanking) {
+    bestUniversityContent = (
+      <div className="block">
+        <div className="text-subheader">Best University &amp; Ranking</div>
+        <div className="education-bestUni-wrapper card fill-black">
+          <div className="text-subheader no-margin-bottom">#{bestUniversityRanking.int_value}</div>
+          <div className="text-subheader no-margin-bottom">{bestUniversity.string_value}</div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -22,13 +35,7 @@ const Education = ({ label, data }) => {
               <div className="text-header">{parseFloat(studentHappiness.percent_value * 100).toFixed(0)}%</div>
             </div>
           </div>
-          <div className="block">
-            <div className="text-subheader">Best University &amp; Ranking</div>
-            <div className="education-bestUni-wrapper card fill-black">
-              <div className="text-subheader no-margin-bottom">#{bestUniversityRanking.int_value}</div>
-              <div className="text-subheader no-margin-bottom">{bestUniversity.string_value}</div>
-            </div>
-          </div>
+          {bestUniversityContent}
         </div>
         <div>
           <div>

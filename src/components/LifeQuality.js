@@ -72,10 +72,8 @@ class UrbanAreaScores extends React.Component {
       <div>
         <h2 className="text-header">Life Quality</h2>
         <div className="ua-scores-container">
-          <div className="ua-scores-summary">
-            {this.renderSummary()}
-          </div>
           <div id="uaScoresChart" style={chartStyles}></div>
+          <div></div>
         </div>
       </div>
     );

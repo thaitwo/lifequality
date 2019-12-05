@@ -1,5 +1,13 @@
+/**
+ * DEPENDENCIES
+ */
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+
+/**
+ * COMPONENTS
+ */
+import Summary from '../components/Summary';
 import LifeQuality from '../components/LifeQuality';
 import Salaries from '../components/Salaries';
 import Climate from '../components/Climate';
@@ -18,9 +26,10 @@ class CityPage extends React.Component {
     super(props);
 
     this.state = {
+			areaName: '',
       cityId: this.props.match.params.cityId,
       cityData: {},
-      uaSummary: '',
+      summary: '',
       uaScores: [],
       uaSalaries: [],
       climate: {},
@@ -31,7 +40,7 @@ class CityPage extends React.Component {
       safety: {},
       lgbt: {},
       people: {},
-      uaPopulation: {},
+      population: {},
       language: {}
     }
   }
@@ -65,14 +74,15 @@ class CityPage extends React.Component {
     const { cityId } = this.state;
 
     Promise.all([
-      fetch(`${BASE_URL_URBAN_AREAS}/slug:${cityId}/scores`),
-      fetch(`${BASE_URL_URBAN_AREAS}/slug:${cityId}/salaries`),
-      fetch(`${BASE_URL_URBAN_AREAS}/slug:${cityId}/details`)
+      fetch(`${BASE_URL_URBAN_AREAS}/slug:${cityId}/`),
+      fetch(`${BASE_URL_URBAN_AREAS}/slug:${cityId}/scores/`),
+      fetch(`${BASE_URL_URBAN_AREAS}/slug:${cityId}/salaries/`),
+      fetch(`${BASE_URL_URBAN_AREAS}/slug:${cityId}/details/`),
+      fetch(`${BASE_URL_URBAN_AREAS}/slug:${cityId}/images/`)
     ])
     .then(res => Promise.all(res.map(r => r.json())))
-    .then(([ scoresData, salariesData, detailsData ]) => {
+    .then(([ basicData,scoresData, salariesData, detailsData, imagesData ]) => {
       const details = detailsData.categories;
-      console.log(details);
 
       const climate = details.find(category => category.id === 'CLIMATE');
       const costOfLiving = details.find(category => category.id === 'COST-OF-LIVING');
@@ -82,12 +92,16 @@ class CityPage extends React.Component {
       const safety = details.find(category => category.id === 'SAFETY');
       const lgbt = details.find(category => category.id === 'MINORITIES');
       const people = details.find(category => category.id === 'INTERNAL');
-      const uaPopulation = details.find(category => category.id === 'CITY-SIZE');
-      const language = details.find(category => category.id === 'LANGUAGE');
-      // console.log(uaPopulation);
+      const population = details.find(category => category.id === 'CITY-SIZE');
+			const language = details.find(category => category.id === 'LANGUAGE');
+			const imageUrl = imagesData.photos[0].image.web;
+			// console.log(scoresData);
+      console.log(imagesData);
 
       this.setState({
-        uaSummary: scoresData.summary,
+				areaName: basicData.full_name,
+				summary: scoresData.summary,
+				imageUrl,
         uaScores: scoresData.categories,
         uaSalaries: salariesData.salaries,
         uaDetails: detailsData.categories,
@@ -99,18 +113,25 @@ class CityPage extends React.Component {
         safety,
         lgbt,
         people,
-        uaPopulation,
+        population,
         language
       });
     });
   }
 
   renderNotFound() {
-    return (
-      <div>
-        <h3>Sorry but no data was found for this city.</h3>
-      </div>
-    );
+		const { cityId } = this.state;
+		let content = '';
+
+		if (cityId === 'notfound') {
+			content = (
+				<div>
+					<h3>Sorry but no data was found for this city.</h3>
+				</div>
+			);
+		}
+
+		return content;
   }
 
   renderCityData() {
@@ -121,10 +142,17 @@ class CityPage extends React.Component {
       content = (
         <div>
           <div className="section">
-            <CityInfo name={this.state.cityData.full_name} population={this.state.cityData.population} />
+						<Summary 
+							name={this.state.areaName}
+							population={this.state.population.data}
+							summary={this.state.summary}
+						/>
           </div>
+					<div className="urban-area-image">
+						<img src={this.state.imageUrl} />
+					</div>
           <div className="section">
-            <LifeQuality summary={this.state.uaSummary} scores={this.state.uaScores} />
+            <LifeQuality summary={this.state.summary} scores={this.state.uaScores} />
           </div>
           <div className="bg-black">
             <div className="section">
@@ -155,7 +183,7 @@ class CityPage extends React.Component {
             <div className="section">
               <People
                 data={this.state.people.data}
-                population={this.state.uaPopulation.data}
+                population={this.state.population.data}
                 language={this.state.language.data}
               />
             </div>
@@ -176,15 +204,8 @@ class CityPage extends React.Component {
         {this.renderCityData()}
         {this.renderNotFound()}
       </div>
-    )
+    );
   }
 }
-
-const CityInfo = ({ name, population }) => (
-  <div>
-    <p className="text-header">{name}</p>
-    <p className="text-subheader">Population: {population}</p>
-  </div>
-);
 
 export default withRouter(CityPage);

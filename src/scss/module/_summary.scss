@@ -1,0 +1,30 @@
+.summary-text {
+  max-width: 820px;
+
+  p {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+  
+  b {
+    font-weight: bold;
+  }
+}
+
+.summary-population {
+  margin: 104px 0 40px;
+
+  h3 {
+    color: rgba($black, 0.1);
+    font-size: 88px;
+    font-weight: bold;
+    margin-bottom: 32px;
+  }
+}
+
+.urban-area-image {
+  
+  img {
+    width: 100%;
+  }
+}

@@ -11,10 +11,8 @@ import CityPage from './pages/CityPage';
 const App = () => (
   <Router>
     <TopNavigation />
-    <div className="app-container">
-      <Route exact path={process.env.PUBLIC_URL + ROUTES.HOME} component={HomePage} />
-      <Route path={process.env.PUBLIC_URL + ROUTES.ABOUT} component={AboutPage} />
-    </div>
+    <Route exact path={process.env.PUBLIC_URL + ROUTES.HOME} component={HomePage} />
+    <Route path={process.env.PUBLIC_URL + ROUTES.ABOUT} component={AboutPage} />
     <Route path={process.env.PUBLIC_URL + `${ROUTES.CITIES}/:cityId`} component={CityPage} />
   </Router>
 );
