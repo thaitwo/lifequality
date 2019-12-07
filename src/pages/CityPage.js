@@ -83,6 +83,7 @@ class CityPage extends React.Component {
     .then(res => Promise.all(res.map(r => r.json())))
     .then(([ basicData,scoresData, salariesData, detailsData, imagesData ]) => {
       const details = detailsData.categories;
+      console.log(details);
 
       const climate = details.find(category => category.id === 'CLIMATE');
       const costOfLiving = details.find(category => category.id === 'COST-OF-LIVING');
@@ -96,7 +97,7 @@ class CityPage extends React.Component {
 			const language = details.find(category => category.id === 'LANGUAGE');
 			const imageUrl = imagesData.photos[0].image.web;
 			// console.log(scoresData);
-      console.log(imagesData);
+      // console.log(imagesData);
 
       this.setState({
 				areaName: basicData.full_name,
@@ -139,57 +140,62 @@ class CityPage extends React.Component {
     let content;
 
     if (cityId !== 'notfound') {
+      const { areaName, population, summary, imageUrl, uaScores,
+        climate, costOfLiving, housing, jobMarket, education,
+        safety, lgbt, people, language, uaSalaries
+        } = this.state;
+
       content = (
         <div>
           <div className="section">
 						<Summary 
-							name={this.state.areaName}
-							population={this.state.population.data}
-							summary={this.state.summary}
+							name={areaName}
+							population={population.data}
+							summary={summary}
 						/>
           </div>
 					<div className="urban-area-image">
-						<img src={this.state.imageUrl} />
+						<img src={imageUrl} />
 					</div>
           <div className="section">
-            <LifeQuality summary={this.state.summary} scores={this.state.uaScores} />
+            <LifeQuality summary={summary} scores={uaScores} />
           </div>
           <div className="bg-black">
             <div className="section">
-              <Climate label={this.state.climate.label} data={this.state.climate.data} />
+              <Climate label={climate.label} data={climate.data} />
             </div>
           </div>
           <div className="section">
-            <CostOfLiving label={this.state.costOfLiving.label} data={this.state.costOfLiving.data} />
-            <Housing label={this.state.housing.label} data={this.state.housing.data} />
+            <CostOfLiving label={costOfLiving.label} data={costOfLiving.data} />
+            <Housing label={housing.label} data={housing.data} />
           </div>
           <div className="bg-black">
             <div className="section">
-              <JobMarket label={this.state.jobMarket.label} data={this.state.jobMarket.data} />
+              <JobMarket label={jobMarket.label} data={jobMarket.data} />
             </div>
           </div>
           <div className="section">
-            <Education label={this.state.education.label} data={this.state.education.data} />
+            <Education label={education ? education.label : null} data={education ? education.data : null} />
           </div>
           <div className="bg-blue">
             <div className="section">
-              <Safety label={this.state.safety.label} data={this.state.safety.data} />
+              <Safety label={safety.label} data={safety.data} />
             </div>
           </div>
           <div className="section">
-            <Lgbt data={this.state.lgbt.data} />
+            <Lgbt data={lgbt.data} />
           </div>
           <div className="bg-orange">
             <div className="section">
               <People
-                data={this.state.people.data}
-                population={this.state.population.data}
-                language={this.state.language.data}
+                people={people.data}
+                population={population.data}
+                language={language.data}
               />
             </div>
           </div>
           <div className="section">
-            <Salaries salaries={this.state.uaSalaries} />
+            <Salaries salaries={uaSalaries} />
           </div>
         </div>
       );
