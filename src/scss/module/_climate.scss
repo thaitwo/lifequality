@@ -1,4 +1,5 @@
 .climate-iconData-wrapper {
+  align-items: center;
   display: flex;
 
   svg {
@@ -7,9 +8,19 @@
   }
 }
 
-.climate-data-wrapper {
+.climate-container {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+  > div {
+    flex-basis: 33.33%;
+    margin-bottom: 48px;
+  }
+
+  .text-header {
+    margin: 0;
+  }
 }
 
 .climate-weatherType {

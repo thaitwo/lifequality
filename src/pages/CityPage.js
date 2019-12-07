@@ -162,7 +162,7 @@ class CityPage extends React.Component {
           </div>
           <div className="bg-black">
             <div className="section">
-              <Climate label={climate.label} data={climate.data} />
+              <Climate climate={climate.data} />
             </div>
           </div>
           <div className="section">

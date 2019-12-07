@@ -70,7 +70,7 @@ const People = ({ people, population, language }) => {
     if (unemploymentRate) {
       unemploymentRateContent = (
         <div>
-          <h4>{String(unemploymentRate.percent_value * 10000)}%</h4>
+          <h4>{String(Math.round(unemploymentRate.percent_value * 10000))}%</h4>
           <p>Unemployment Rate</p>
         </div>
       );
