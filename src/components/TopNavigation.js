@@ -15,7 +15,7 @@ const TopNavigation = () => (
   <div className="topnav-container">
     <div className="topnav-content">
       <Link to={process.env.PUBLIC_URL + ROUTES.HOME} className="topnav-logo">
-        <img src="../../logo.png" />
+        <img src="./logo.png" />
       </Link>
       <SearchBox />
     </div>

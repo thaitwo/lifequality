@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer>
       <a href="https://www.freepik.com/free-photos-vectors/logo" target="_blank">
-        <img src="../../logo.png" />
+        <img src="./logo.png" />
       </a>
       <p>World Life Quality</p>
     </footer>
