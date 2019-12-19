@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "12ede65c016a4583ea2da8f821f7aed4",
+    "revision": "f5acb2952b21dd8501f86cc26e02295a",
     "url": "/lifequality/index.html"
   },
   {
-    "revision": "f540c2b7f42c40aaf2cf",
+    "revision": "d3a0321277699cdab28c",
     "url": "/lifequality/static/css/main.0e0b3a83.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/lifequality/static/js/2.cd4da78b.chunk.js"
   },
   {
-    "revision": "f540c2b7f42c40aaf2cf",
-    "url": "/lifequality/static/js/main.fde4298a.chunk.js"
+    "revision": "d3a0321277699cdab28c",
+    "url": "/lifequality/static/js/main.ac113922.chunk.js"
   },
   {
     "revision": "927666c805370b73dc12",
