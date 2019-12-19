@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/lifequality/static/css/main.0e0b3a83.chunk.css",
-    "main.js": "/lifequality/static/js/main.fe4d0056.chunk.js",
-    "main.js.map": "/lifequality/static/js/main.fe4d0056.chunk.js.map",
+    "main.js": "/lifequality/static/js/main.fde4298a.chunk.js",
+    "main.js.map": "/lifequality/static/js/main.fde4298a.chunk.js.map",
     "runtime-main.js": "/lifequality/static/js/runtime-main.9f4c9c3f.js",
     "runtime-main.js.map": "/lifequality/static/js/runtime-main.9f4c9c3f.js.map",
     "static/js/2.cd4da78b.chunk.js": "/lifequality/static/js/2.cd4da78b.chunk.js",
     "static/js/2.cd4da78b.chunk.js.map": "/lifequality/static/js/2.cd4da78b.chunk.js.map",
     "index.html": "/lifequality/index.html",
-    "precache-manifest.fbadcd5f2d3dc9dfc75ef2ab376260ee.js": "/lifequality/precache-manifest.fbadcd5f2d3dc9dfc75ef2ab376260ee.js",
+    "precache-manifest.25f2b8853d0a1c249a2c6f6314978a58.js": "/lifequality/precache-manifest.25f2b8853d0a1c249a2c6f6314978a58.js",
     "service-worker.js": "/lifequality/service-worker.js",
     "static/css/main.0e0b3a83.chunk.css.map": "/lifequality/static/css/main.0e0b3a83.chunk.css.map"
   },
@@ -16,6 +16,6 @@
     "static/js/runtime-main.9f4c9c3f.js",
     "static/js/2.cd4da78b.chunk.js",
     "static/css/main.0e0b3a83.chunk.css",
-    "static/js/main.fe4d0056.chunk.js"
+    "static/js/main.fde4298a.chunk.js"
   ]
 }
