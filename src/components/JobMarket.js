@@ -1,6 +1,6 @@
 import React from 'react'
 
-const JobMarket = ({ label, data }) => {
+const JobMarket = ({ data }) => {
   let startupSalary = data ? data.find(item => item.id === 'STARTUP-SALARIES-DETAIL') : '';
   let jobAvail = data ? data.find(item => item.id === 'STARTUP-JOBS-AVAILABLE') : '';
   let jobAvailContent = '';
@@ -26,7 +26,7 @@ const JobMarket = ({ label, data }) => {
 
   return (
     <div>
-      <h2 className="text-header">{label}</h2>
+      <h2 className="text-header">Job Market</h2>
       <div className="job-market-stats">
         {jobAvailContent}
         {startupSalaryContent}

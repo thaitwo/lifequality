@@ -1,0 +1,16 @@
+footer {
+  align-items: center;
+  border-top: 1px solid rgba($black, 0.06);
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 auto;
+  max-width: 1032px;
+  padding: 24px 0;
+  width: 100%;
+
+  img {
+    height: 24px;
+    padding-right: 16px;
+    width: 24px;
+  }
+}

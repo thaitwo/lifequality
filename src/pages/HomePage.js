@@ -2,8 +2,9 @@ import React from 'react';
 import UrbanAreasList from '../components/UrbanAreasList';
 
 const HomePage = () => (
-  <div className="app-container">
-    <h2 className="text-subheader">Cities Around the World</h2>
+  <div className="home-container">
+    <h2 className="text-subheader">Popular Cities Around The World</h2>
+    <p>Select a city below to discover</p>
     <UrbanAreasList />
   </div>
 );

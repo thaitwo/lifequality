@@ -1,6 +1,19 @@
 .app-container {
-  margin: 0 auto;
+  margin: 72px auto 0;
+}
+
+.home-container {
+  margin: 72px auto 0;
   max-width: 1032px;
-  padding: 40px 0;
-  width: 100%;
+  padding: 56px 0;
+
+  h2 {
+    color: $blue-500;
+    font-size: 32px;
+    margin-bottom: 0;
+  }
+
+  p {
+    color: rgba($black, 0.3);
+  }
 }

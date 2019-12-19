@@ -124,9 +124,11 @@ const Climate = ({ climate }) => {
   }
 
   return (
-    <div>
-      <h2 className="text-header">Climate</h2>
-      {renderData()}
+    <div className="bg-black">
+      <div className="section">
+        <h2 className="text-header">Climate</h2>
+        {renderData()}
+      </div>
     </div>
   );
 }

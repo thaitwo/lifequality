@@ -27,7 +27,8 @@ export const options = {
       dataLabels: {
         enabled: true,
         format: '{y}K'
-      }
+      },
+      color: '#2196F3'
     }
   },
   legend: {

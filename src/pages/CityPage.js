@@ -160,23 +160,19 @@ class CityPage extends React.Component {
           <div className="section">
             <LifeQuality summary={summary} scores={uaScores} />
           </div>
-          <div className="bg-black">
-            <div className="section">
-              <Climate climate={climate.data} />
-            </div>
-          </div>
+          { climate ? <Climate climate={climate.data} /> : '' }
           <div className="section">
             <CostOfLiving label={costOfLiving.label} data={costOfLiving.data} />
             <Housing label={housing.label} data={housing.data} />
           </div>
-          <div className="bg-black">
-            <div className="section">
-              <JobMarket label={jobMarket.label} data={jobMarket.data} />
+          { jobMarket ?
+            <div className="bg-black">
+              <div className="section">
+                <JobMarket data={jobMarket.data} />
+              </div>
             </div>
-          </div>
-          <div className="section">
-            <Education label={education ? education.label : null} data={education ? education.data : null} />
-          </div>
+          : '' }
+          { education ? <Education data={education.data} /> : ''}
           <div className="bg-blue">
             <div className="section">
               <Safety label={safety.label} data={safety.data} />

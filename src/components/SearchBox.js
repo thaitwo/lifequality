@@ -31,7 +31,6 @@ class SearchBox extends React.Component {
     fetch(`https://api.teleport.org/api/cities/?search=${e.target.value}`)
       .then(res => res.json())
       .then(data => {
-        console.log(data);
         this.setState({
           suggestions: data['_embedded']['city:search-results']
         });
@@ -70,10 +69,13 @@ class SearchBox extends React.Component {
   }
 
   render() {
+    const { city, suggestions } = this.state;
+    const activeClass = (city && suggestions.length) ? 'search-input is-active' : 'search-input';
+
     return (
       <form onSubmit={this.handleSubmit}>
         <input
-          className="search-input"
+          className={activeClass}
           name="city"
           onChange={this.handleChange}
           value={this.state.city}

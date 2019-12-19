@@ -1,12 +1,16 @@
 .topnav-container {
   background: $black;
+  border-bottom: 1px solid rgba($white, 0.2);
   height: 72px;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1;
 
-  .topnav-logo {
-    color: $white;
-    font-size: 20px;
-    font-weight: bold;
-    text-decoration: none;
+  .topnav-logo img {
+    height: 48px;
+    width: 48px;
   }
 }
 
