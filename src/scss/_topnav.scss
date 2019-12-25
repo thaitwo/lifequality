@@ -1,32 +1,37 @@
 .topnav-container {
-  background: $black;
-  border-bottom: 1px solid rgba($white, 0.2);
-  height: 72px;
-  left: 0;
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: 1;
+	background: $black;
+	border-bottom: 1px solid rgba($white, 0.2);
+	height: 72px;
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 1;
 
-  .topnav-logo img {
-    height: 48px;
-    width: 48px;
-  }
+	.topnav-logo img {
+		height: 48px;
+		transition: all 0.1s;
+		width: 48px;
+
+		&:hover {
+			transform: scale(1.1);
+		}
+	}
 }
 
 .topnav-content {
-  align-items: center;
-  display: flex;
-  height: 100%;
-  justify-content: space-between;
-  margin: 0 auto;
-  max-width: 1032px;
-  width: 100%;
+	align-items: center;
+	display: flex;
+	height: 100%;
+	justify-content: space-between;
+	margin: 0 auto;
+	max-width: 1032px;
+	width: 100%;
 }
 
 .topnav-menu {
-  li a {
-    color: $white;
-    text-decoration: none;
-  }
+	li a {
+		color: $white;
+		text-decoration: none;
+	}
 }

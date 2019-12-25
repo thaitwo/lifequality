@@ -4,56 +4,49 @@ import { Link } from 'react-router-dom';
 import * as ROUTES from '../constants/routes';
 
 class UrbanAreasList extends React.Component {
-  constructor(props) {
-    super(props);
+	constructor(props) {
+		super(props);
 
-    this.state = {
-      urbanAreasList: []
-    };
-  }
+		this.state = {
+			urbanAreasList: []
+		};
+	}
 
-  componentDidMount() {
-    fetch('https://api.teleport.org/api/urban_areas/')
-      .then(res => res.json())
-      .then(res => {
-        // console.log(res);
-        const urbanAreasList = res['_links']['ua:item'];
-        const urbanAreasIds = res['_links']['ua:item']['href'];
+	componentDidMount() {
+		fetch('https://api.teleport.org/api/urban_areas/')
+			.then(res => res.json())
+			.then(res => {
+				const urbanAreasList = res['_links']['ua:item'];
 
-        this.setState({ urbanAreasList });
-        // console.log(urbanAreasList);
-        // return fetch(urb)
-      })
-      .then()
-  }
+				this.setState({ urbanAreasList });
+			})
+			.catch(error => console.log(error));
+	}
 
-  renderUrbanAreas() {
-    const { urbanAreasList } = this.state;
-    // console.log(urbanAreasList);
+	renderUrbanAreas() {
+		const { urbanAreasList } = this.state;
 
-    const urbanAreas = urbanAreasList.map((area, index) => {
-      const { href, name } = area;
-      const slugName = href.split('slug:')[1].split('/')[0];
+		const urbanAreas = urbanAreasList.map((area, index) => {
+			const { href, name } = area;
+			const slugName = href.split('slug:')[1].split('/')[0];
 
-      return (
-        <li key={index}>
-          <Link to={process.env.PUBLIC_URL + `${ROUTES.CITIES}/${slugName}`}>{name}</Link>
-        </li>
-      );
-    });
+			return (
+				<li key={index}>
+					<Link to={`${ROUTES.CITIES}/${slugName}`}>{name}</Link>
+				</li>
+			);
+		});
 
-    return urbanAreas;
-  }
+		return urbanAreas;
+	}
 
-  render() {
-    return (
-      <div>
-        <ul className="urban-areas-container">
-          {this.renderUrbanAreas()}
-        </ul>
-      </div>
-    )
-  }
+	render() {
+		return (
+			<div>
+				<ul className="urban-areas-container">{this.renderUrbanAreas()}</ul>
+			</div>
+		);
+	}
 }
 
 export default UrbanAreasList;
