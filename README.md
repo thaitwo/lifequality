@@ -9,6 +9,9 @@
 - [Sass](https://sass-lang.com/)
 - [Highcharts](https://www.highcharts.com/)
 
+### API REFERENCE
+Teleport API was used for this application. Learn more about the Teleport API [here](https://developers.teleport.org/api/)
+
 ### START APP LOCALLY
 
 1. In the project root directory, run `npm start`
